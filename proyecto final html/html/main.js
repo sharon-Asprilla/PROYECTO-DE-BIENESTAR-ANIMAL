@@ -25,17 +25,14 @@ const boton = document.getElementById('btn-animales');
 const textoAnimales = document.getElementById('texto-animales');
 
 
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 
 const animalesDisponibles = [
     { nombre: 'Luna', raza: 'Labrador', edad: '2 años' },
-    { nombre: 'Rocky', raza: 'Pastor Alemán', edad: '1 año' },
-    { nombre: 'Bella', raza: 'Golden Retriever', edad: '3 años' },
+    { nombre: 'Rocky', raza: 'Pastor Alemán', edad: '5 años' },
+    { nombre: 'mindy', raza: 'Golden Retriever', edad: '3 años' },
     { nombre: 'Max', raza: 'Husky', edad: '2 años' },
-    { nombre: 'Coco', raza: 'Beagle', edad: '1 año' }
+    { nombre: 'mona', raza: 'Beagle', edad: '1 año' }
 ];
 
 
@@ -60,35 +57,40 @@ async function obtenerAnimales() {
         `;
 
         
-        await delay(500);
-        actualizarProgreso(30);
-        await delay(500);
-        actualizarProgreso(60);
-        await delay(500);
-        actualizarProgreso(90);
-        await delay(500);
-        actualizarProgreso(100);
+    // Usamos setTimeout para simular la cosa cargar
+    actualizarProgreso(0);
 
-       
-        await delay(500);
+    setTimeout(() => actualizarProgreso(70), 600);
+    setTimeout(() => actualizarProgreso(100), 3500);
+    setTimeout(() => actualizarProgreso(100), 3500);
+    setTimeout(() => actualizarProgreso(200), 3000);
 
-        
+    setTimeout(() => {
+      try {
         const contenidoHTML = animalesDisponibles
-            .map(animal => `
-                <div class="animal-card">
-                    <h3>${animal.nombre}</h3>
-                    <p>Raza: ${animal.raza}</p>
-                    <p>Edad: ${animal.edad}</p>
-                </div>
-            `)
-            .join('');
-
-        
-        textoAnimales.innerHTML = `
-            <div class="animales-grid">
-                ${contenidoHTML}
+          .map(animal => `
+            <div class="animal-card">
+              <h3>${animal.nombre}</h3>
+              <p>Raza: ${animal.raza}</p>
+              <p>Edad: ${animal.edad}</p>
             </div>
+          `)
+          .join('');
+
+        textoAnimales.innerHTML = `
+          <div class="animales-grid">
+            ${contenidoHTML}
+          </div>
         `;
+      } catch (renderErr) {
+        textoAnimales.innerHTML = `
+          <div class="mensaje-error">
+            <p>Error al mostrar los datos.</p>
+          </div>
+        `;
+        console.error('Error renderizando animales:', renderErr);
+      }
+    }, 2300);
 
     } catch (error) {
         textoAnimales.innerHTML = `
@@ -99,6 +101,36 @@ async function obtenerAnimales() {
         `;
         console.error('Error:', error);
     }
+}
+
+
+async function fetch() {
+  const contenedor = document.getElementById('texto-animales');
+  if (!contenedor) throw new Error('No existe ');
+
+  contenedor.innerHTML = '<div class="mensaje-contenedor"><p>Cargando...</p></div>';
+
+  const url = 'https://dog.ceo/api/breeds/list/all';
+
+  try {
+    const respuesta = await fetch(url); 
+    if (!respuesta.ok) {
+     
+      throw new Error(`HTTP ${respuesta.status}`);
+    }
+
+    const datos = await respuesta.json(); 
+
+    
+    return datos; 
+
+  } catch (error) {
+   
+    contenedor.innerHTML = '<div class="mensaje-error"><p>No se pudieron cargar los datos. Intenta más tarde.</p></div>';
+    console.error('Error ', error);
+    
+    throw error;
+  }
 }
 
 boton.addEventListener('click', obtenerAnimales);
