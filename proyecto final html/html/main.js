@@ -1,7 +1,7 @@
 const boton = document.getElementById('btn-animales');
 const textoAnimales = document.getElementById('texto-animales');
 
-// Función asíncrona para consumir la API
+
 async function obtenerRazasDePerros() {
   textoAnimales.textContent = 'Cargando la lista de razas disponibles para adoptar...';
 
@@ -15,9 +15,9 @@ async function obtenerRazasDePerros() {
     const datos = await respuesta.json();
     const razas = Object.keys(datos.message);
 
-    // Simulamos carga con setTimeout
+    
     setTimeout(() => {
-      textoAnimales.innerHTML = ''; // Limpiar mensaje de carga
+      textoAnimales.innerHTML = ''; 
 
       const lista = document.createElement('ul');
       razas.forEach(raza => {
@@ -30,7 +30,7 @@ async function obtenerRazasDePerros() {
 
 
       textoAnimales.appendChild(lista);
-    }, 5000); // 1.5 segundos de espera
+    }, 5000); 
 
   } catch (error) {
     textoAnimales.textContent = 'No se pudieron cargar los datos. Intenta más tarde.';
@@ -38,5 +38,5 @@ async function obtenerRazasDePerros() {
   }
 }
 
-// Evento al hacer clic
+
 boton.addEventListener('click', obtenerRazasDePerros);
