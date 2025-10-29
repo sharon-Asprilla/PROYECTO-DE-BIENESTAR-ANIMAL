@@ -45,26 +45,43 @@
        </nav>
       
     </header>
+
+
+    <br>
+    <br>
         
        <section>
             <div>
+                
                 <h1>ingresar ala plataforma</h1>
-                <label for="nombre">ingresar el nombre con el que se registro</label>
-                <br>
-                <input type="text">
                 <br>
 
-                <label for="contraseña">ingresar su contraseña</label>
+                <label>ingresar el correo con el que se registro</label>
                 <br>
-                <input type="text">
+                <input id="correo" type="email" placeholder="correo" required>
                 <br>
 
-                <button type="submit"> <a href="plataforma.html">enviar</a></button>
+                <label>ingresar su contraseña</label>
+                <br>
+                <input id="contraseña" type ="password"placeholder="contraseña" required>
+                <br>
+
+                <button type="button" id="ingresar" onclick="validarLogin()">ingresar</button>
+
+                <button type="submit"><a href="registrarte.html">registrarse</a><button>
+                
+                <button type="submit"><a href="recuperarc.html">recuperar contraseña</a><button>
 
                 
 
             </div>
        </section>
+
+       <br>
+       <br>
+       <br>
+
+       <br>
     
 
     
@@ -80,5 +97,8 @@
                 <br>
             <p>programadores: <br> Sharon Asprilla, Mateo Aguirre y Andres Bello</p>
         </footer>
+
+
+        <script src="login.js"></script>
 </body>
 </html>
