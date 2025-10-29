@@ -150,7 +150,7 @@ li{
     border: 1px solid;
 }
 
-/* Alinea las cajas en una sola fila centrada; permite que se envuelvan en pantallas pequeñas */
+
 #navegacion{
     display: flex;
     gap: var(--gap);
