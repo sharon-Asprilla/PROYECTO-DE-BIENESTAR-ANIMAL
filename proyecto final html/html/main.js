@@ -26,6 +26,9 @@ async function obtenerRazasDePerros() {
         lista.appendChild(item);
       });
 
+    
+
+
       textoAnimales.appendChild(lista);
     }, 5000); // 1.5 segundos de espera
 
