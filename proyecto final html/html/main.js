@@ -40,3 +40,10 @@ async function obtenerRazasDePerros() {
 
 
 boton.addEventListener('click', obtenerRazasDePerros);
+
+const showApiBtn = document.getElementById('show-api-btn');
+const apiSection = document.getElementById('api-section');
+
+showApiBtn.addEventListener('click', () => {
+  apiSection.style.display = 'block';
+});
