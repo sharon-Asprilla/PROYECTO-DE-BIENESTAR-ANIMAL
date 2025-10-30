@@ -61,19 +61,19 @@
 
             <label for="nombre">Ingresar el nombre o placa de la mascota </label>
             <br>
-            <input type="text" placeholder="opcional">
+            <input id="nombre" type="text" placeholder="opcional">
             <br>
             <br>
 
             <label for="especie">Ingresa la especie </label>
             <br>
-            <input type="text" placeholder="ejemplo: gato,perro,etc">
+            <input id="especie" type="text" placeholder="ejemplo: gato,perro,etc">
             <br>
             <br>
 
             <label for="tipo de identificacion">Elija que tipo de sexo es  </label>
             <br>
-            <select name="select" seleccione>
+            <select id="identificacion" name="select" seleccione>
                 <option value="1">seleccione</option>
                  <option value="2">femenino</option>
                   <option value="3">masculino</option>
@@ -98,7 +98,7 @@
             
             <label for="estado de adopcion">Elija su estado de adopcion  </label>
             <br>
-            <select name="estado de adopcion" >
+            <select id="adopcion" name="estado de adopcion" >
                 <option value="1">seleccione</option>
                 <option value="2">adoptado</option>
                 <option value="3">disponible</option>
@@ -115,8 +115,9 @@
             <br>
             <br>
 
-            <button type="submit">Enviar</button> <br>
+            <button id="enviar" type="submit">Enviar</button> <br>
             <br> <button type="submit">Cancelar</button>
+            <ul id="listaAnimales"></ul>
         </section>
 
         <section>
@@ -137,6 +138,8 @@
                 <br>
             <p>Programadores: <br> Sharon Asprilla</p>
         </footer>
+
+        <script src="animal.js"></script>
     
 </body>
 </html>
