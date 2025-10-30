@@ -30,14 +30,14 @@ botonEnviar.addEventListener("click", () => {
   animales.push(nuevoAnimal);
   actualizarLista();
 
-  // Limpiar campos
+  
   nombreInput.value = "";
   especieInput.value = "";
   identificacionSelect.value = "";
   adopcionSelect.value = "";
 });
 
-// Actualizar la lista en pantalla
+
 function actualizarLista() {
   listaAnimales.innerHTML = "";
 
