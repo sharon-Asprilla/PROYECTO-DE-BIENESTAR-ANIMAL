@@ -1,5 +1,9 @@
 @media (max-width: 600px) {
     body {
-        background-color: lightblue;
+        background-color: rgb(249, 171, 227);
+        color: black;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 0;
+        padding: 0;
     }
 }

@@ -1,9 +1,8 @@
 
-
-
-
 @media (min-width: 1025px) {
     body {
-        background-color: lightgray;
+        background-color: rgb(247, 121, 121);
+        color: black;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
 }
